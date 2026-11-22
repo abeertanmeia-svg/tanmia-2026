@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تنمية 2026 — ملتقى معلمات التعليم المجتمعي</title>
+<!--
+  نسخة مُصحَّحة للمراجعة (مبنية على النسخة الثانية التي أرسلتِها):
+  ✔ واجهة عرض فقط — لا حذف، ولا «استعادة الافتراضي»، ولا لوحة مخفية بالنقر على الشعار.
+  ✔ تقرأ قائمة التطبيقات من المنصة تلقائياً (PLATFORM_URL + /apps.json)، وإن تعذّر ذلك تعرض القائمة الاحتياطية أدناه.
+  ✔ أُزيل رابط Supabase Dashboard من العرض العام (مبدأ «أمان المفاتيح»).
+  ✔ حالة «مُختبَر» تأتي من سجل المنصة فقط (بعد الفحوص الستة).
+  للتعديل: غيّري PLATFORM_URL إلى رابط المنصة بعد النشر.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--green:#0f6b4f;--green-d:#0a4a37;--green-l:#e6f3ee;--gold:#c9a227;--ink:#1b2a24;--muted:#5b6b64;--bg:#f7faf8;--card:#fff;--line:#dde7e2;--ok:#0f8a5f;--warn:#b8860b;--gray:#7a8a83;--bad:#b23a3a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  header{background:linear-gradient(135deg,var(--green-d),var(--green));color:#fff;padding:36px 0 30px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;left:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.06)}
+  .brand{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .logo{width:54px;height:54px;border-radius:14px;flex:none;background:var(--gold);color:var(--green-d);display:grid;place-items:center;font-weight:800;font-size:24px}
+  header h1{font-size:30px;font-weight:800}
+  header .msg{font-size:18px;opacity:.95;border-right:3px solid var(--gold);padding-right:12px;margin-top:4px}
+  .privacy-bar{margin-top:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:10px 14px;font-size:14.5px}
+  .cta{display:inline-block;margin-top:16px;background:var(--gold);color:var(--green-d);font-weight:800;text-decoration:none;padding:10px 20px;border-radius:10px}
+  section{padding:44px 0}
+  .sec-title{font-size:23px;font-weight:800;color:var(--green-d);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+  .sec-title::before{content:"";width:8px;height:26px;background:var(--gold);border-radius:4px}
+  .sec-sub{color:var(--muted);margin-bottom:22px;font-size:15.5px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;transition:.18s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(15,107,79,.09);border-color:#c9ded4}
+  .card .ico{font-size:26px;display:block;margin-bottom:10px}
+  .card h3{font-size:17.5px;font-weight:700;color:var(--green-d);margin-bottom:6px}
+  .card p{font-size:14.5px;color:var(--muted)}
+  .app{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .app .info{flex:1 1 220px;min-width:0}
+  .app .name{font-weight:700;font-size:16px}
+  .app .fn{font-size:13.5px;color:var(--muted);margin-top:2px}
+  .badge{font-size:12.5px;font-weight:700;padding:4px 11px;border-radius:999px;white-space:nowrap}
+  .b-ok{background:#e3f4ec;color:var(--ok)}.b-warn{background:#fdf3dc;color:var(--warn)}.b-gray{background:#eef2f0;color:var(--gray)}.b-bad{background:#fbe6e6;color:var(--bad)}
+  .btn{text-decoration:none;font-size:14px;font-weight:700;padding:8px 18px;border-radius:9px;background:var(--green);color:#fff;white-space:nowrap;display:inline-block}
+  .btn:hover{background:var(--green-d)}
+  .btn.ghost{background:transparent;color:var(--green);border:1.5px solid var(--green);opacity:.55;cursor:default}
+  .source{font-size:12.5px;color:var(--muted);margin-top:10px}
+  footer{background:var(--green-d);color:#d9ece5;padding:26px 0;margin-top:20px;font-size:14px;text-align:center}
+  footer strong{color:#fff}
+  @media print{header{background:#fff!important;color:#000!important;border-bottom:2px solid #000}.btn,.cta{display:none}}
+  @media(max-width:640px){header h1{font-size:23px}header .msg{font-size:15.5px}.sec-title{font-size:20px}section{padding:32px 0}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo">ت</div>
+      <div>
+        <h1>تنمية 2026</h1>
+        <div class="msg">ملتقى معلمات التعليم المجتمعي — فرصة ثانية للتعلم</div>
+      </div>
+    </div>
+    <div class="privacy-bar">🔒 <strong>خصوصية الأطفال أولًا:</strong> لا نجمع بيانات شخصية، ولا نعرض أو نلمّح إلى الظروف الأسرية أو الاجتماعية أو الاقتصادية لأي طفل.</div>
+    <a class="cta" id="platformLink" href="#" target="_blank" rel="noopener noreferrer">ادخلي المنصة ←</a>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec-title">أقسام المنصة</h2>
+    <p class="sec-sub">مسارات عملية لدعم تعلّم الأطفال وتمكين المعلمات.</p>
+    <div class="grid">
+      <div class="card"><span class="ico">📚</span><h3>مكتبة الأنشطة والوسائل</h3><p>أنشطة وألعاب وقصص وأوراق عمل ووسائل تعليمية جاهزة للاستخدام الصفي.</p></div>
+      <div class="card"><span class="ico">👥</span><h3>إدارة الفصل متعدد المستويات</h3><p>استراتيجيات تدريس وتنظيم تسمح للمعلمة بالعمل مع مجموعة بينما تعمل الأخريات باستقلالية منظمة.</p></div>
+      <div class="card"><span class="ico">🧭</span><h3>مساعد المعلمة</h3><p>أدوات للتحضير والتخطيط والتقييم، وتوليد الدروس بأسلوب ثابت وواضح.</p></div>
+      <div class="card"><span class="ico">✨</span><h3>معلمات مبدعات بالذكاء الاصطناعي</h3><p>مبادرة تمكين المعلمات من استخدام الذكاء الاصطناعي في التعليم المجتمعي.</p></div>
+      <div class="card"><span class="ico">🗂️</span><h3>الإدارة والاستمارات</h3><p>نماذج رسمية للعرض والطباعة، ودليل المعلمة الإداري.</p></div>
+      <div class="card"><span class="ico">👪</span><h3>نماذج منفصلة</h3><p>نماذج مستقلة للمعلمات والجمعيات والطلاب وأولياء الأمور، بأقل قدر من البيانات الشخصية.</p></div>
+      <div class="card"><span class="ico">🤝</span><h3>مكتبة مشاركة الموارد</h3><p>مشاركة موارد المعلمات بصلاحيات واضحة، دون المساس بخصوصية الأطفال.</p></div>
+      <div class="card"><span class="ico">🔤</span><h3>حروفنا نور</h3><p>منظومة علاجية لتأسيس القراءة والكتابة: تقييم قبلي، مجموعات، وألعاب حسية.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#eef5f1;">
+  <div class="wrap">
+    <h2 class="sec-title">التطبيقات والموارد</h2>
+    <p class="sec-sub">الحالة تُحدّث بعد الاختبار الفعلي (فتح + تنقل + حفظ + إعادة فتح + طباعة + مشاركة).</p>
+    <div class="grid" id="apps"></div>
+    <p class="source" id="source"></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec-title">مبادئ العمل</h2>
+    <p class="sec-sub">قرارات معتمدة توجّه كل تطوير قادم.</p>
+    <div class="grid">
+      <div class="card"><h3>لا بدء من الصفر</h3><p>نراجع الموجود ونستفيد منه قبل بناء أي جديد.</p></div>
+      <div class="card"><h3>لا حذف ولا نقل</h3><p>لا يُحذف أو يُوقف أو يُنقل أي تطبيق أو استضافة أو قاعدة بيانات قبل المراجعة والموافقة.</p></div>
+      <div class="card"><h3>النسخ الاحتياطي أولًا</h3><p>نحتفظ بنسخة من الأكواد وملفات SQL والبيانات قبل أي تعديل.</p></div>
+      <div class="card"><h3>التمييز بين «يعمل» و«مُختبَر»</h3><p>لا نعتبر تطبيقًا جاهزًا لمجرد أنه يُفتح.</p></div>
+      <div class="card"><h3>لا تكلفة دون موافقة</h3><p>لا خدمة مدفوعة أو نشر نهائي أو نقل بيانات قبل توضيح التكلفة والموافقة.</p></div>
+      <div class="card"><h3>أمان المفاتيح</h3><p>لا مفاتيح API أو كلمات مرور في ملفات HTML المنشورة أو الواجهة الأمامية.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><strong>تنمية 2026</strong> — ملتقى معلمات التعليم المجتمعي · فرصة ثانية للتعلم<br>بوابة عامة للعرض والتنقل · لا تجمع بيانات شخصية</div>
+</footer>
+
+<script>
+/* ====== الإعداد الوحيد المطلوب: رابط المنصة بعد النشر ====== */
+const PLATFORM_URL = "{{PLATFORM_URL}}";
+
+/* قائمة احتياطية تُعرض فقط إذا تعذّر الوصول للمنصة (بدون Supabase Dashboard). */
+const FALLBACK = [
+  {name:"حروفنا نور", fn:"منظومة تأسيس القراءة والكتابة", status:"gray", url:""},
+  {name:"مساعد توليد التحضير", fn:"lesson_generator_v2.html", status:"gray", url:""},
+  {name:"السبورة الذكية", fn:"smart-board.html", status:"gray", url:""},
+  {name:"استوديو الأنشطة", fn:"activity-platform-prototype.html", status:"gray", url:""},
+  {name:"منصة المعلمة المبدعة", fn:"mobdaa-shared.html", status:"gray", url:""},
+  {name:"منصة التواصل", fn:"Cloud Run", status:"gray", url:"https://ais-pre-ta74jmiqro3gdsjmx7f3az-871170181157.europe-west2.run.app/"},
+  {name:"موقع Wix", fn:"tanmeia2008.wixsite.com", status:"gray", url:"https://tanmeia2008.wixsite.com/-site"},
+  {name:"Floot", fn:"مشروعات Tanmia / حروفنا نور / Feedback Hub", status:"gray", url:"https://tanmia2026tanmia2026.floot.app/"},
+  {name:"قطار المقاطع", fn:"Mable", status:"gray", url:"https://mable.gg/g/apk8b6"},
+  {name:"قطار الحروف", fn:"تطبيق تعليمي — بلا رابط مثبت", status:"gray", url:""}
+];
+const LABELS = {ok:"مُختبَر", warn:"قيد الاختبار", gray:"لم يُفتح بعد", bad:"معطّل"};
+const BADGE = {ok:"b-ok", warn:"b-warn", gray:"b-gray", bad:"b-bad"};
+
+function render(list, sourceText){
+  const box = document.getElementById("apps");
+  box.innerHTML = "";
+  list.forEach(a => {
+    const el = document.createElement("div"); el.className = "app";
+    const info = document.createElement("div"); info.className = "info";
+    const n = document.createElement("div"); n.className = "name"; n.textContent = a.name || "";
+    const f = document.createElement("div"); f.className = "fn"; f.textContent = a.fn || "";
+    info.append(n, f);
+    const b = document.createElement("span"); b.className = "badge " + (BADGE[a.status] || "b-gray"); b.textContent = LABELS[a.status] || "لم يُفتح بعد";
+    el.append(info, b);
+    const safeUrl = /^https?:\/\//i.test(a.url || "") ? a.url : "";
+    if (safeUrl) { const l = document.createElement("a"); l.className = "btn"; l.href = safeUrl; l.target = "_blank"; l.rel = "noopener noreferrer"; l.textContent = "فتح"; el.append(l); }
+    else { const s = document.createElement("span"); s.className = "btn ghost"; s.textContent = "قريبًا"; el.append(s); }
+    box.append(el);
+  });
+  document.getElementById("source").textContent = sourceText;
+}
+
+(async function init(){
+  const hasPlatform = /^https?:\/\//.test(PLATFORM_URL);
+  const link = document.getElementById("platformLink");
+  if (hasPlatform) link.href = PLATFORM_URL; else link.style.display = "none";
+  if (hasPlatform) {
+    try {
+      const r = await fetch(PLATFORM_URL.replace(/\/$/, "") + "/apps.json", {cache: "no-store"});
+      if (r.ok) { const arr = await r.json(); if (Array.isArray(arr)) return render(arr, "✓ القائمة محدّثة تلقائياً من سجل المنصة."); }
+    } catch (e) {}
+  }
+  render(FALLBACK, "القائمة الاحتياطية (تعذّر الوصول للمنصة الآن).");
+})();
+</script>
+</body>
+</html>
