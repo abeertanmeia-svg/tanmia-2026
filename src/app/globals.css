@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Lalezar&family=Readex+Pro:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --font-arabic: "Readex Pro", "Segoe UI", Tahoma, "Noto Naskh Arabic", "Noto Sans Arabic", "Geeza Pro", "Arial", sans-serif;
+}
+
+html {
+  font-family: var(--font-arabic);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.35s ease-out both;
+}
+
+.prose-ar h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+.prose-ar p {
+  margin: 0.5rem 0;
+  line-height: 1.9;
+}
+.prose-ar ul,
+.prose-ar ol {
+  padding-inline-start: 1.5rem;
+  margin: 0.5rem 0;
+  line-height: 1.9;
+}
+.prose-ar ul {
+  list-style: disc;
+}
+.prose-ar ol {
+  list-style: decimal;
+}
+.prose-ar strong {
+  font-weight: 700;
+  color: #0f172a;
+}
+.prose-ar table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+}
+.prose-ar th,
+.prose-ar td {
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 0.75rem;
+  text-align: right;
+}
+.prose-ar th {
+  background: #f8fafc;
+  font-weight: 700;
+}
+
+.font-display {
+  font-family: "Lalezar", var(--font-arabic);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.mark-hl {
+  background: linear-gradient(transparent 55%, #fcd34d 55%, #fcd34d 92%, transparent 92%);
+  padding: 0 0.15em;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+  }
+  main {
+    padding: 0 !important;
+  }
+  article {
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .prose-ar table {
+    page-break-inside: avoid;
+  }
+  @page {
+    margin: 14mm;
+  }
+}
